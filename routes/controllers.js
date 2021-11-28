@@ -15,7 +15,16 @@ router.post('/', (req, res) => {
     const newRecord = new Model({
         voiture: req.body.voiture,
         sortie: req.body.sortie,
-        retour: req.body.retour
+        retour: req.body.retour,
+        genre: req.body.genre,
+        prenom: req.body.prenom,
+        nom: req.body.nom,
+        email: req.body.email,
+        tel: req.body.tel,
+        code: req.body.code,
+        ville: req.body.ville,
+        adresse: req.body.adresse,
+        naissance: req.body.naissance
     })
 
     newRecord.save((err, docs) => {
@@ -30,7 +39,16 @@ router.put('/:id', (req, res) => {
 
     const updateRecord = {
         sortie: req.body.sortie,
-        retour: req.body.retour
+        retour: req.body.retour,
+        genre: req.body.genre,
+        prenom: req.body.prenom,
+        nom: req.body.nom,
+        email: req.body.email,
+        tel: req.body.tel,
+        code: req.body.code,
+        ville: req.body.ville,
+        adresse: req.body.adresse,
+        naissance: req.body.naissance
     }
 
     Model.findByIdAndUpdate(
