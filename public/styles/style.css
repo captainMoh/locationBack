@@ -1,0 +1,271 @@
+*, ::after, ::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.tout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  min-height: 100vh;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  color: #f1f1f1;
+  padding: 10px;
+}
+
+.info p {
+  font-size: larger;
+}
+
+.info .menu a{
+  color: orange;
+}
+
+.cartes_calendrier {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.cartes {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.cartes .loader {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1000;
+}
+
+.cartes .aucune {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  color: #f1f1f1;
+  font-size: x-large;
+  transition: all 1s;
+}
+
+.voiture:hover {
+  transform: scale(1.1);
+}
+
+.voiture p {
+  font-size: larger;
+  color: #f1f1f1;
+  font-weight: bolder;
+  z-index: 2;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.voiture .img {
+  width: 150px;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+#v0, #v1, #v2, #v3 {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 0;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all .7s;
+}
+
+.outer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+#v0 {
+  background: url(../image/208.jpg) center/cover;
+}
+
+#v1 {
+  background: url(../image/301.jpg) center/cover;
+}
+
+#v2 {
+  background: url(../image/logan.jpg) center/cover;
+}
+
+#v3 {
+  background: url(../image/stepway.jpg) center/cover;
+}
+
+.calendrier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  width: 30%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 50px;
+}
+.calendrier input {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 50px;
+  padding: 10px;
+  font-size: larger;
+}
+.calendrier .premier-jour, .calendrier .dernier-jour {
+  display: flex;
+  flex-direction: column;
+}
+.calendrier .premier-jour {
+  padding: 20px 0 10px 0;
+}
+.calendrier .dernier-jour {
+  padding: 0 0 20px 0;
+}
+.calendrier .tempsDeLocation {
+  font-size: larger;
+  font-weight: bolder;
+  padding: 10px 0;
+}
+
+.calendrier .valider {
+  font-size: large;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  background-color: #0011ff;
+  cursor: pointer;
+}
+
+.calendrier .valider:active {
+  transform: scale(0.9);
+}
+
+iframe {
+  width: 95%;
+  height: 400px;
+  margin: 20px 0;
+}
+
+footer {
+  color: #f1f1f1;
+  background: black;
+  width: 100%;
+  text-align: center;
+  padding: 0 5px;
+}
+
+@media (max-width: 800px) {
+
+  .cartes_calendrier {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartes, .calendrier {
+    width: 95%;
+  }
+
+   h1 {
+    font-size: x-large;
+  }
+
+  #form {
+    width: 100vw;
+  }
+}
+
+@Keyframes animate{
+    0%, 100%{
+        background-image: url(image/208.jpg);
+    }
+
+    20%{
+        background-image: url(image/301.jpg);
+    }
+
+    40%{
+        background-image: url(image/stepway.jpg);
+    }
+
+    60%{
+        background-image: url(image/logan.jpg);
+    }
+
+    80%{
+        background-image: url(image/highland.jpg);
+    }
+}
+
+/* page formulaire */
+#form {
+  display: none;
+  flex-direction: column;
+  margin: auto;
+  width: 90vw;
+  min-height: 100vh;
+}
+
+.prenom-nom, .email, .numero-tel, .ville-code, .adresse, .naissance, .bouton {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#input-prenom, #input-nom, #input-tel, #input-code, #input-ville {
+  width: 49%;
+  border: 1px solid black;
+}
+
+#input-email, #input-adresse, #input-naissance, #bouton {
+  width: 100%;
+  border: 1px solid black;
+}
+
+#input-prenom:valid, #input-nom:valid, #input-tel:valid, #input-code:valid, #input-ville:valid, #input-email:valid, #input-adresse:valid, #input-naissance:valid {
+  border: 2px solid rgb(0, 255, 13);
+}
+
+#input-prenom:invalid, #input-nom:invalid, #input-tel:invalid, #input-code:invalid, #input-ville:invalid, #input-email:invalid, #input-adresse:invalid, #input-naissance:invalid {
+  border: 2px solid red;
+}
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./styles/style.css" />
+    <title>STE RHARRABTI Location Car Ahfir-Berkane</title>
+</head>
+<body>
+
+	<form id="form">
+        <h1>Coordonnées de Réservation</h1>
+        <hr />
+		<button type="button" onclick="retour()">retour</button>
+        <div class="genre-radio">
+            <label for="homme">M.</label>
+            <input type="radio" id="homme" value="homme" name="genre" checked />
+            
+            <label for="femme">Mme.</label>
+            <input type="radio" id="femme" value="femme" name="genre" />
+        </div>
+
+        <div class="prenom-nom">
+            <input type="text" placeholder="Prénom *" id="input-prenom" value="" required />
+            <input type="text" placeholder="nom *" id="input-nom" required />
+        </div>
+
+        <div class="email">
+            <input type="email" placeholder="Email *" id="input-email" required />
+        </div>
+
+        <div class="numero-tel">
+            <input type="tel" placeholder="0650-123456" pattern="[0-9]{10}" id="input-tel" />
+        </div>
+
+        
+        <div class="ville-code">
+            <input type="text" placeholder="Code Postal *" id="input-code" required />
+            <input type="text" placeholder="Ville *" id="input-ville" required />
+        </div>
+            
+        <div class="adresse">
+            <textarea id="input-adresse" placeholder="Adresse *" minlength="5" ></textarea>
+        </div>
+
+        <div class="naissance">
+            <input type="date" placeholder="Date de naissance *" id="input-naissance" required />
+        </div>
+
+        <div class="bouton">
+            <input type="submit" value="valider" id="bouton" />
+        </div>
+            
+    </form>
+	
+	<div class="tout">
+		<div class="info">
+			<h1>STE RHARRABTI <strong>LOCATION</strong> CAR<br/>
+				<hr />
+				<i class="fa fa-car"></i> <strong>AUTOS - MOTOS</strong> <i class="fa fa-motorcycle"></i><br/>
+			كراء السيارات</h1><br/><br/>
+			<p class="phrase">Location de voiture à <strong>Oujda, Ahfir, Berkane et Saidia</strong></p>
+
+			<div class = "menu">
+				<p class = "btn">
+					<i class="fa fa-phone"></i> <a href = "tel:+212639674394">06 39 67 43 94</a> / <a href = "tel:+212625053393">06 25 05 33 93</a><br/>
+					<i class="fa fa-map-marker"></i> 28 Rue El Motanabi Hay salam - Berkane / 82 Rue Khalid Ibn Walid - Ahfir							
+				</p> 
+			</div>
+		</div>
+
+		<div class="cartes_calendrier">
+
+			<div class="calendrier">
+				<h1>Reservez votre voiture</h1>
+
+				<label class="premier-jour" for="">
+					Du
+					<input id="start" type="date" required/>
+				</label>
+
+				<label class="dernier-jour" for="">
+					Au
+					<input id="end" type="date" required/>
+				</label>
+
+				<div class="tempsDeLocation"></div>
+
+				<button type="button" class="valider">Rechercher</button>
+			</div>
+
+			<div class="cartes">
+				<img class="loader" src="./assets/tail-spin.svg">
+				<div class="aucune"></div>
+				<div class = "voiture" id="v0">
+					<img class = "img" src="image/208.jpg" alt="peugeot 208" >
+					<div class="outer"></div>
+					<p>Peugeot 208 Diesel</p>
+				</div>
+				
+				<div class = "voiture" id="v1">
+					<img class = "img" src="image/301.jpg" alt="peugeot 301" >
+					<div class="outer"></div>
+					<p>Peugeot 301 Diesel</p>
+				</div>
+
+				<div class = "voiture" id="v2">
+					<img class = "img" src="image/logan.jpg" alt="Dacia logan" >
+					<div class="outer"></div>
+					<p>Dacia Logan Diesel</p>
+				</div>
+				
+				<div class = "voiture" id="v3">
+					<img class = "img" src="image/stepway.jpg" alt="Dacia stepway" >
+					<div class="outer"></div>
+					<p>Dacia stepway Diesel</p>
+				</div>
+				
+			</div>
+		</div>
+
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2090.168166695925!2d-2.
+		1002759472687873!3d34.947427879913626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0
+		%3A0xa8e895c1dc3d35c9!2sRestaurant%20Caf%C3%A9%20Glacier%20L&#39;Escale!5e0!3m2!1sfr!2sma!4v1637880050368!5m2!1sfr!2sma"
+		loading="lazy"></iframe>
+
+		<footer>
+			<p>
+				Copyright &copy; RHARRABTI Mohamed-Amine - 2021 - All Rights Reserved
+			</p>
+		</footer>
+	</div>
+	
+<script src="./scripts/script.js"></script>
+</body>
+</html>

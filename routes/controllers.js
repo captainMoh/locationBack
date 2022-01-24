@@ -4,29 +4,8 @@ const ObjectID = require('mongoose').Types.ObjectId;
 
 const { Model } = require('../model/model');
 
+const nodemailer = require('nodemailer');
 
-/*const run = async () => {
-    const user = await Model.create({
-        voiture: "peugeot 208",
-        location: [
-            {   
-                "sortie": "2021-01-01",
-                "retour": "2021-01-8",
-                "genre": "homme",
-                "prenom": "Mohamed-Amine",
-                "nom": "RHARRABTI",
-                "email": "aichoun026@gmail.com",
-                "tel": "0621125478",
-                "code": "60000",
-                "ville": "oujda",
-                "adresse": "rue aghdferyf",
-                "naissance": "2021_12-10"
-            }
-        ]
-    })
-    console.log(user);
-}
-run();*/
 
 router.get('/', (req, res) => {
     Model.find((err, docs) => {
@@ -56,6 +35,11 @@ router.patch('/:id', (req, res) => {
         location: req.body.location
     }
 
+    const information = {
+        location: req.body.location,
+        voiture: req.body.voiture
+    }
+
     Model.findByIdAndUpdate(
         req.params.id,
         { $addToSet: updateRecord },
@@ -65,7 +49,36 @@ router.patch('/:id', (req, res) => {
             else console.log(`Update error : ${err}`);
         }
     )
+    
+    mail(information);
 })
+
+
+const mail = async (information) => {
+
+    let transporter = nodemailer.createTransport({
+        service:'gmail',
+        auth: {
+            user: 'aichoun026@gmail.com',
+            pass: 'htgbhljmqizzzqnl'
+        },
+    });
+
+    let info = await transporter.sendMail({
+        from: 'aichoun026@gmail.com',
+        to: `${information.location[0].email}`,
+        subject: "Réservation de voiture",
+        text: `
+        Bonjour, ${information.location[0].prenom}, vous avez loué le véhicule ${information.voiture}  
+        Date de sortie: ${information.location[0].sortie}
+        Date de retour: ${information.location[0].retour}
+        Prénom: ${information.location[0].prenom}
+        Nom: ${information.location[0].nom}
+        Email: ${information.location[0].email}
+        Adresse: ${information.location[0].adresse}, ${information.location[0].code}, ${information.location[0].ville}
+        `
+    });
+}
 
 router.put('/:id', (req, res) => {
     if(!ObjectID.isValid(req.params.id))
